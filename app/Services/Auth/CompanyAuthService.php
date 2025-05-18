@@ -3,7 +3,6 @@
 namespace App\Services\Auth;
 
 use App\Models\Company;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class CompanyAuthService

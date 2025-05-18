@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\CandidateAuthController;
 use App\Http\Controllers\Auth\CompanyAuthController;
 
 /*
@@ -20,7 +21,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::group(['prefix' => 'auth'], function () {
-    Route::post('/company/register', [App\Http\Controllers\Auth\CompanyAuthController::class, 'register']);
-    Route::post('/company/login', [App\Http\Controllers\Auth\CompanyAuthController::class, 'login']);
+    Route::post('/company/register', [CompanyAuthController::class, 'register']);
+    Route::post('/company/login', [CompanyAuthController::class, 'login']);
+    
+    Route::post('/candidate/register', [CandidateAuthController::class, 'register']);
+    Route::post('/candidate/login', [CandidateAuthController::class, 'login']);
 });
 
