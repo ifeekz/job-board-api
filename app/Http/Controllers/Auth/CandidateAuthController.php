@@ -29,8 +29,7 @@ class CandidateAuthController extends Controller
 
     public function login(CandidateLoginRequest $request)
     {
-        $credentials = $request->only('email', 'password');
-        $token = $this->authService->login($credentials);
+        $token = $this->authService->login($request->validated());
 
         if (!$token) {
             return ApiResponse::error('Invalid credentials', null, 401);
