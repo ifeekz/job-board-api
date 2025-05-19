@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Job extends Model
+class JobPost extends Model
 {
     use HasFactory, Searchable, SoftDeletes;
     protected $fillable = [

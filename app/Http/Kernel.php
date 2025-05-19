@@ -69,5 +69,6 @@ class Kernel extends HttpKernel
 
     protected $routeMiddleware = [
         'ensure.company.owns.job' => \App\Http\Middleware\EnsureCompanyOwnsJob::class,
+        'check.if.job.applied' => \App\Http\Middleware\CheckIfJobApplied::class,
     ];
 }

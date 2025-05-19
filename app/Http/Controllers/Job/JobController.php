@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Job;
 
-use App\Models\Job;
+use App\Models\JobPost;
 use App\Services\Job\JobService;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -25,15 +25,15 @@ class JobController extends Controller
         return ApiResponse::success($job, 'Job created successfully', 201);
     }
 
-    public function update(JobRequest $request, Job $job)
+    public function update(JobRequest $request, JobPost $job)
     {
         $job = $this->jobService->updateJob($job, $request->validated());
         return ApiResponse::success($job, 'Job updated successfully');
     }
 
-    public function destroy(Job $job)
+    public function destroy(JobPost $jobPost)
     {
-        $this->jobService->deleteJob($job);
+        $this->jobService->deleteJob($jobPost);
         return ApiResponse::success(null, 'Job deleted successfully');
     }
 }

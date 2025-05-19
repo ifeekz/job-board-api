@@ -38,5 +38,9 @@ Route::group(['prefix' => 'v1'], function () {
         Route::delete('/jobs/{job}', [JobController::class, 'destroy'])->middleware('ensure.company.owns.job');
     });
 
-    Route::get('/jobs/list', [CandidateJobController::class, 'index']);
+    Route::get('/jobs/list', [CandidateJobController::class, 'index'])->name('jobs.list');
+    Route::post('/jobs/{id}/apply', [CandidateJobController::class, 'apply'])
+        ->middleware('auth:candidate')
+        ->middleware('check.if.job.applied')
+        ->name('job.apply');
 });

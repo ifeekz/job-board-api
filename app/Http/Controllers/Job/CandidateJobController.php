@@ -7,6 +7,7 @@ use App\Services\Job\CandidateJobService;
 use App\Http\Controllers\Controller;
 use App\Helpers\ApiResponse;
 use Illuminate\Http\Request;
+use App\Http\Requests\Job\JobApplicationRequest;
 
 class CandidateJobController extends Controller
 {
@@ -16,5 +17,12 @@ class CandidateJobController extends Controller
     {
         $jobs = $this->jobService->listPublicJobs($request);
         return ApiResponse::success($jobs, 'Published jobs fetched successfully');
+    }
+
+    public function apply(JobApplicationRequest $request, $jobId)
+    {
+        $application = $this->jobService->applyToJob($jobId, $request);
+
+        return ApiResponse::success($application, 'Job application submitted successfully', 201);
     }
 }

@@ -2,8 +2,12 @@
 
 namespace App\Services\Job;
 
-use App\Models\Job;
+use App\Jobs\ProcessCoverLetterUpload;
+use App\Models\JobPost;
+use App\Models\JobApplication;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Jobs\ProcessResumeUpload;
 
 class CandidateJobService
 {
@@ -12,7 +16,7 @@ class CandidateJobService
      */
     public function listPublicJobs(Request $request)
     {
-        $query = Job::query()->whereNotNull('published_at');
+        $query = JobPost::query()->whereNotNull('published_at');
 
         if ($request->filled('location')) {
             $query->where('location', 'like', '%' . $request->location . '%');
@@ -24,7 +28,7 @@ class CandidateJobService
         }
 
         if ($request->filled('keyword')) {
-            $searchResults = Job::search($request->keyword)->get()->pluck('id')->toArray();
+            $searchResults = JobPost::search($request->keyword)->get()->pluck('id')->toArray();
 
             if (count($searchResults) > 0) {
                 $query->whereIn('id', $searchResults);
@@ -44,5 +48,23 @@ class CandidateJobService
     protected function emptyPaginatedResult(int $perPage)
     {
         return new \Illuminate\Pagination\LengthAwarePaginator([], 0, $perPage);
+    }
+
+    public function applyToJob($jobId, Request $request)
+    {
+        $candidateId = Auth::id();
+
+        $application = JobApplication::create([
+            'candidate_id' => $candidateId,
+            'job_id' => $jobId,
+        ]);
+
+        $resumePath = $request->file('resume')->store('resumes');
+        $coverLetterPath = $request->file('cover_letter')->store('cover_letters');
+
+        ProcessResumeUpload::dispatch($application, $resumePath);
+        ProcessCoverLetterUpload::dispatch($application, $coverLetterPath);
+
+        return $application;
     }
 }
