@@ -36,7 +36,7 @@ cp .env.example .env
 php artisan key:generate
 ```
 
-Update `.env` with your database and mail credentials:
+Update `.env` with your database credentials:
 
 ```env
 DB_DATABASE=job_board
@@ -75,16 +75,19 @@ The API will be available at `http://localhost:8000`
 ### 🧱 Job Management (Company Only)
 - Create, update, soft-delete jobs
 - View own jobs
-- Job Fields: `title`, `description`, `location`, `salary_range`, `is_remote`, `published_at`
+  - Job Fields: `title`, `description`, `location`, `salary_range`, `is_remote`, `published_at`
+- Company jobs stats
 
 ### 📃 Public Job Listing
-- `GET /api/jobs` — List of published jobs (paginated)
+- `GET /api/v1/jobs/list` — List of published jobs (paginated)
 - Filtering: `location`, `is_remote`, `keywords`
 
 ### ✍️ Job Application (Candidate Only)
-- `POST /api/jobs/{id}/apply`
-- Upload `resume` (file) and `cover_letter` (file)
-- One application per job per candidate
+- `POST /api/v1/jobs/{id}/apply`
+    - Upload `resume` (file) and `cover_letter` (file)
+    - One application per job per candidate
+- Candidate applied job count
+    - `Get /api/v1/candidate/jobs/stats`
 
 ### 🚀 Queueing
 - Resume/cover letter uploads processed via Laravel Queues
