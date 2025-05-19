@@ -3,11 +3,12 @@
 namespace App\Services\Job;
 
 use App\Jobs\ProcessCoverLetterUpload;
+use App\Jobs\ProcessResumeUpload;
 use App\Models\JobPost;
 use App\Models\JobApplication;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Jobs\ProcessResumeUpload;
+use Illuminate\Support\Facades\Cache;
 
 class CandidateJobService
 {
@@ -16,30 +17,38 @@ class CandidateJobService
      */
     public function listPublicJobs(Request $request)
     {
-        $query = JobPost::query()->whereNotNull('published_at');
+        $cacheKey = build_cache_key([
+            'location' => $request->location,
+            'keyword' => $request->keyword,
+            'page' => $request->page,
+        ]);
 
-        if ($request->filled('location')) {
-            $query->where('location', 'like', '%' . $request->location . '%');
-        }
+        return Cache::remember($cacheKey, now()->addMinutes(5), function () use ($request) {
+            $query = JobPost::query()->whereNotNull('published_at');
 
-        if ($request->filled('is_remote')) {
-            $isRemote = filter_var($request->is_remote, FILTER_VALIDATE_BOOLEAN);
-            $query->where('is_remote', $isRemote);
-        }
-
-        if ($request->filled('keyword')) {
-            $searchResults = JobPost::search($request->keyword)->get()->pluck('id')->toArray();
-
-            if (count($searchResults) > 0) {
-                $query->whereIn('id', $searchResults);
-            } else {
-                return $this->emptyPaginatedResult($request->input('limit', 10));
+            if ($request->filled('location')) {
+                $query->where('location', 'like', '%' . $request->location . '%');
             }
-        }
 
-        $perPage = $request->input('limit', 10);
+            if ($request->filled('is_remote')) {
+                $isRemote = filter_var($request->is_remote, FILTER_VALIDATE_BOOLEAN);
+                $query->where('is_remote', $isRemote);
+            }
 
-        return $query->paginate($perPage)->withQueryString();
+            if ($request->filled('keyword')) {
+                $searchResults = JobPost::search($request->keyword)->get()->pluck('id')->toArray();
+
+                if (count($searchResults) > 0) {
+                    $query->whereIn('id', $searchResults);
+                } else {
+                    return $this->emptyPaginatedResult($request->input('limit', 10));
+                }
+            }
+
+            $perPage = $request->input('limit', 10);
+
+            return $query->paginate($perPage)->withQueryString();
+        });
     }
 
     /**
