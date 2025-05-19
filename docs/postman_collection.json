@@ -1,0 +1,2840 @@
+{
+	"info": {
+		"_postman_id": "055ccbbc-9e6a-4082-87e5-dbec408cadbd",
+		"name": "Job Board API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11430366"
+	},
+	"item": [
+		{
+			"name": "Company",
+			"item": [
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "Register company",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"name\",\r\n    \"email\": \"abcltd@gmail.com\",\r\n    \"password\": \"Pa$$word1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/api/auth/company/register",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"company",
+										"register"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "201 - Successful",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"name\",\r\n    \"email\": \"abcltd@gmail.com2\",\r\n    \"password\": \"Pa$$word1\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BASE_URL}}/api/auth/company/register",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"api",
+												"auth",
+												"company",
+												"register"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sun, 18 May 2025 21:21:12 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "Apache/2.4.59 (Win64) OpenSSL/3.1.5 PHP/8.1.28 mod_fcgid/2.3.10-dev"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.1.28"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "58"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5, max=100"
+										},
+										{
+											"key": "Connection",
+											"value": "Keep-Alive"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 201,\n    \"success\": true,\n    \"message\": \"Company registered successfully\",\n    \"data\": {\n        \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMGQ5YjEwMTY0MmY5ZDQyMGEwNmM3ZmQzMGVlOTdlNDVlNjU5ZTE4NTA4NDU3MTI1MDU2MmFmZDY4NGZkNWUwNzY5Zjk2ZDBjNGE0YTQ3MmMiLCJpYXQiOjE3NDc2MDMyNzMuMTk3MjI5LCJuYmYiOjE3NDc2MDMyNzMuMTk3MjM4LCJleHAiOjE3NzkxMzkyNzMuMTgzMDUsInN1YiI6IjIiLCJzY29wZXMiOltdfQ.iPZtT7a1LVnBQnqDakgmtwbRlGk7cySrfe-Jgu5jMBEx_t9l59BI3QKd967UvIv018zK6jPXObVxep8uTRsdXaVM9xoc3VM9def4rVKf80PoWho4dCmughnLEcyGIckMYHLhJVTNCWjxlkDE8g_NgxyPklcKTi4ikK3z79fVSn44j_xxXN0q1HsKTyVFtwEsKL_7mbBPUW0ErKBMhq_Z97ozjCJ2rwYT6laOq7r-544F8EsM7kFGQhXXzs9oaQNeP1eRmNhnXMs_O6moFAIcP1lJz01fsvYooP426urvYc6n-aiaPDRMEDds2x4N4HKJ9PtNH6sZJUEfZufLYTA9OS4Dji__vKioRqn8yZX3NQqIkSiv4E2EpU_Xb7jTfn5e-rqA-JyEL1bRJYigPPq9mJ74WJ0SOeBXQHfv9KtnJxhDzy9LNg0bcRI7Mz9RA_xUjk3GFJ9kqIsSYTjswZTF_51Sk-a2rH4Xad31ms_n2moM7VH1TN1qPmn5CWluEt6wKWcHGVDDa_eLabvoCuSXDsfifKP_zCxnaG2Zcndoggixg3gLRH6j0UJaE7TQqdzXgAYpI0GMcSNStpjZqNL8jbqziQy243sHNa9lDbVWgyMc8VF21BPb5lJRzeYlNVbabGEFR22tXVdwCV1lelEa4s4iC4E_GHk77nu_4NcWrYk\"\n    }\n}"
+								},
+								{
+									"name": "422 - Validation error",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"\",\r\n    \"email\": \"abcltd@gmail.com\",\r\n    \"password\": \"\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BASE_URL}}/api/auth/company/register",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"api",
+												"auth",
+												"company",
+												"register"
+											]
+										}
+									},
+									"status": "Unprocessable Content",
+									"code": 422,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sun, 18 May 2025 21:26:07 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "Apache/2.4.59 (Win64) OpenSSL/3.1.5 PHP/8.1.28 mod_fcgid/2.3.10-dev"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.1.28"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "58"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5, max=100"
+										},
+										{
+											"key": "Connection",
+											"value": "Keep-Alive"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 422,\n    \"success\": false,\n    \"message\": \"Validation failed\",\n    \"data\": {\n        \"name\": [\n            \"The name field is required.\"\n        ],\n        \"email\": [\n            \"The email has already been taken.\"\n        ],\n        \"password\": [\n            \"The password field is required.\"\n        ]\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Company login",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"abcltd@gmail.com\",\r\n    \"password\": \"Pa$$word1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/api/auth/company/login",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"company",
+										"login"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "200 - Successful",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"abcltd@gmail.com\",\r\n    \"password\": \"Pa$$word1\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BASE_URL}}/api/auth/company/login",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"api",
+												"auth",
+												"company",
+												"login"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sun, 18 May 2025 21:46:59 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "Apache/2.4.59 (Win64) OpenSSL/3.1.5 PHP/8.1.28 mod_fcgid/2.3.10-dev"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.1.28"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "58"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5, max=100"
+										},
+										{
+											"key": "Connection",
+											"value": "Keep-Alive"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 200,\n    \"success\": true,\n    \"message\": \"Login successful\",\n    \"data\": {\n        \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiOWY0ODFjYjA5MTI2ZWY4MmZiN2E4YWFiMTkxZWJiNDU5Y2FlMmVmNDlmYzIzMjY1OWMwMTBiYWViNzg2ZWFhYTM5MjA0MGViNjQ2ZGJlMzUiLCJpYXQiOjE3NDc2MDQ4MjAuMDk5NDYyLCJuYmYiOjE3NDc2MDQ4MjAuMDk5NDY3LCJleHAiOjE3NzkxNDA4MjAuMDkwODgzLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.EBaxPbPEAux1c_Y4_fyd6Ulx6YC0ojjlqKTwCrpug1JTmKV4yOakgxBpoiWJJhMk5lH1LrSiw7q4OsQUC0lI9J1H_DW7pFXjU9aiDXV993gsT8sCj7erwfSmJWmk01UhmkErRbraboQo_Z2hjFDEuYxP9fNggrvMmwmsDhsdfut5z1G7ybXSHl3wjSVr6NbnOLl1uR232svCSbFf-rjoI08IU1-HarvtPaKmMBsKfURfn7K5z70biPNtY25eshSueu5uq6Re-RdbfZBy1NDDjokUs2-59f-Ok1xo1WbjtZpM0-qLvZa2KjFVSoUR2WnURIIPYU_9PmEVH2eyTekKbQ3kThilXN0GVsRIhxL_nzd_t1b6hTsFTABBROZftu7tMs_tD1QG1kX8oMf8U4MUr3Gd_RNjH4-_8mfTSExV5gH2B9ir4o40IR7p74tSYcZpmri03Mtavf50pHPaXtsZXV4a0lQT00RIONAAgVEU_xLVWNIk986K1Br2vO9I-PbIL5G6BFmWk6Gc15kLKLMimKGkwDq5j7YqqlyeTOcA1Q5aom5ss5Oo9c8kIteSWjRLfdQ4uLO_3b1G-XcgmoNRlbbt9UhEv6OXzJnOGp3-81u-8cA30hmCzBh-GzHf3gqErm9B-_DWxy7CwEj8peIbO6OSwQXjk11oBY3IjY_RsZk\"\n    }\n}"
+								},
+								{
+									"name": "401 - Invalid credentials",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"abcltd@gmail.com\",\r\n    \"password\": \"Pa$$word\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BASE_URL}}/api/auth/company/login",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"api",
+												"auth",
+												"company",
+												"login"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sun, 18 May 2025 21:53:30 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "Apache/2.4.59 (Win64) OpenSSL/3.1.5 PHP/8.1.28 mod_fcgid/2.3.10-dev"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.1.28"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "59"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5, max=100"
+										},
+										{
+											"key": "Connection",
+											"value": "Keep-Alive"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 401,\n    \"success\": false,\n    \"message\": \"Invalid credentials\",\n    \"data\": {}\n}"
+								},
+								{
+									"name": "422 - Validation error",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"\",\r\n    \"password\": \"\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BASE_URL}}/api/auth/company/login",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"api",
+												"auth",
+												"company",
+												"login"
+											]
+										}
+									},
+									"status": "Unprocessable Content",
+									"code": 422,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sun, 18 May 2025 21:52:21 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "Apache/2.4.59 (Win64) OpenSSL/3.1.5 PHP/8.1.28 mod_fcgid/2.3.10-dev"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.1.28"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "59"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5, max=100"
+										},
+										{
+											"key": "Connection",
+											"value": "Keep-Alive"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 422,\n    \"success\": false,\n    \"message\": \"Validation failed\",\n    \"data\": {\n        \"email\": [\n            \"The email field is required.\"\n        ],\n        \"password\": [\n            \"The password field is required.\"\n        ]\n    }\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Job",
+					"item": [
+						{
+							"name": "List jobs",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{ACCESS_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/api/v1/jobs?page=1&limit=20",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"jobs"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1",
+											"description": "current page number"
+										},
+										{
+											"key": "limit",
+											"value": "20",
+											"description": "number of records per page"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "200 - Successful",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"nnoromifeanyi@gmail.com\",\r\n    \"password\": \"Pa$$word1\"\r\n}"
+										},
+										"url": {
+											"raw": "{{BASE_URL}}/api/v1/jobs?page=1&limit=20",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"jobs"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "1",
+													"description": "current page number"
+												},
+												{
+													"key": "limit",
+													"value": "20",
+													"description": "number of records per page"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sun, 18 May 2025 23:34:49 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "Apache/2.4.59 (Win64) OpenSSL/3.1.5 PHP/8.1.28 mod_fcgid/2.3.10-dev"
+										},
+										{
+											"key": "Vary",
+											"value": "Authorization"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.1.28"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "59"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5, max=100"
+										},
+										{
+											"key": "Connection",
+											"value": "Keep-Alive"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 200,\n    \"success\": true,\n    \"message\": \"Jobs fetched successfully\",\n    \"data\": {\n        \"data\": [\n            {\n                \"id\": 1,\n                \"title\": \"Job title\",\n                \"description\": \"Job description\",\n                \"location\": \"Lagos, Nigeria\",\n                \"salary_range\": \"2000000 - 2500000\",\n                \"is_remote\": false,\n                \"published_at\": null,\n                \"created_at\": \"2025-05-18T23:17:20.000000Z\",\n                \"updated_at\": \"2025-05-18T23:17:20.000000Z\"\n            }\n        ],\n        \"links\": {\n            \"first\": \"http://jobboard.test:8090/api/v1/jobs?page=1\",\n            \"last\": \"http://jobboard.test:8090/api/v1/jobs?page=1\",\n            \"prev\": null,\n            \"next\": null\n        },\n        \"meta\": {\n            \"current_page\": 1,\n            \"from\": 1,\n            \"last_page\": 1,\n            \"links\": [\n                {\n                    \"url\": null,\n                    \"label\": \"&laquo; Previous\",\n                    \"active\": false\n                },\n                {\n                    \"url\": \"http://jobboard.test:8090/api/v1/jobs?page=1\",\n                    \"label\": \"1\",\n                    \"active\": true\n                },\n                {\n                    \"url\": null,\n                    \"label\": \"Next &raquo;\",\n                    \"active\": false\n                }\n            ],\n            \"path\": \"http://jobboard.test:8090/api/v1/jobs\",\n            \"per_page\": 20,\n            \"to\": 1,\n            \"total\": 1\n        }\n    }\n}"
+								},
+								{
+									"name": "401 - Authentication required",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"nnoromifeanyi@gmail.com\",\r\n    \"password\": \"Pa$$word1\"\r\n}"
+										},
+										"url": {
+											"raw": "{{BASE_URL}}/api/v1/jobs",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"jobs"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sun, 18 May 2025 23:18:19 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "Apache/2.4.59 (Win64) OpenSSL/3.1.5 PHP/8.1.28 mod_fcgid/2.3.10-dev"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.1.28"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5, max=100"
+										},
+										{
+											"key": "Connection",
+											"value": "Keep-Alive"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 401,\n    \"success\": false,\n    \"message\": \"Unauthenticated.\",\n    \"data\": {}\n}"
+								}
+							]
+						},
+						{
+							"name": "Create job",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{ACCESS_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"Fullstack Developer\",\r\n    \"description\": \"Job description\",\r\n    \"location\": \"Lagos, Nigeria\",\r\n    \"salary_range\": \"2000000 - 2500000\",\r\n    \"is_remote\": false,\r\n    \"published_at\": \"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/api/v1/jobs",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"jobs"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "201 - Successful",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"title\": \"Job title\",\r\n    \"description\": \"Job description\",\r\n    \"location\": \"Lagos, Nigeria\",\r\n    \"salary_range\": \"2000000 - 2500000\",\r\n    \"is_remote\": false,\r\n    \"published_at\": \"\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BASE_URL}}/api/v1/jobs",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"jobs"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sun, 18 May 2025 23:17:20 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "Apache/2.4.59 (Win64) OpenSSL/3.1.5 PHP/8.1.28 mod_fcgid/2.3.10-dev"
+										},
+										{
+											"key": "Vary",
+											"value": "Authorization"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.1.28"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "59"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5, max=100"
+										},
+										{
+											"key": "Connection",
+											"value": "Keep-Alive"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 201,\n    \"success\": true,\n    \"message\": \"Job created successfully\",\n    \"data\": {\n        \"title\": \"Job title\",\n        \"description\": \"Job description\",\n        \"location\": \"Lagos, Nigeria\",\n        \"salary_range\": \"2000000 - 2500000\",\n        \"is_remote\": false,\n        \"published_at\": null,\n        \"company_id\": 1,\n        \"updated_at\": \"2025-05-18T23:17:20.000000Z\",\n        \"created_at\": \"2025-05-18T23:17:20.000000Z\",\n        \"id\": 1\n    }\n}"
+								},
+								{
+									"name": "401 - Authentication required",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"title\": \"\",\r\n    \"description\": \"\",\r\n    \"location\": \"\",\r\n    \"salary_range\": \"\",\r\n    \"is_remote\": \"\",\r\n    \"published_at\": \"\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BASE_URL}}/api/v1/jobs",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"jobs"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sun, 18 May 2025 23:15:19 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "Apache/2.4.59 (Win64) OpenSSL/3.1.5 PHP/8.1.28 mod_fcgid/2.3.10-dev"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.1.28"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5, max=100"
+										},
+										{
+											"key": "Connection",
+											"value": "Keep-Alive"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 401,\n    \"success\": false,\n    \"message\": \"Unauthenticated.\",\n    \"data\": {}\n}"
+								},
+								{
+									"name": "422 - Validation error",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"title\": \"\",\r\n    \"description\": \"\",\r\n    \"location\": \"\",\r\n    \"salary_range\": \"\",\r\n    \"is_remote\": \"\",\r\n    \"published_at\": \"\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BASE_URL}}/api/v1/jobs",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"jobs"
+											]
+										}
+									},
+									"status": "Unprocessable Content",
+									"code": 422,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sun, 18 May 2025 23:15:56 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "Apache/2.4.59 (Win64) OpenSSL/3.1.5 PHP/8.1.28 mod_fcgid/2.3.10-dev"
+										},
+										{
+											"key": "Vary",
+											"value": "Authorization"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.1.28"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "59"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5, max=100"
+										},
+										{
+											"key": "Connection",
+											"value": "Keep-Alive"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 422,\n    \"success\": false,\n    \"message\": \"Validation failed\",\n    \"data\": {\n        \"title\": [\n            \"The title field is required.\"\n        ],\n        \"description\": [\n            \"The description field is required.\"\n        ],\n        \"location\": [\n            \"The location field is required.\"\n        ],\n        \"salary_range\": [\n            \"The salary range field is required.\"\n        ],\n        \"is_remote\": [\n            \"The is remote field is required.\"\n        ]\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Update job",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{ACCESS_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"Fullstack Engineer\",\r\n    \"description\": \"Job description\",\r\n    \"location\": \"Lagos, Nigeria\",\r\n    \"salary_range\": \"2000000 - 2500000\",\r\n    \"is_remote\": false,\r\n    \"published_at\": \"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/api/v1/jobs/:id",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"jobs",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1",
+											"description": "job id"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "200 - Successful",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"title\": \"Job title edit\",\r\n    \"description\": \"Job description\",\r\n    \"location\": \"Lagos, Nigeria\",\r\n    \"salary_range\": \"2000000 - 2500000\",\r\n    \"is_remote\": false,\r\n    \"published_at\": \"\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BASE_URL}}/api/v1/jobs/:id",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"jobs",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1",
+													"description": "job id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sun, 18 May 2025 23:45:43 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "Apache/2.4.59 (Win64) OpenSSL/3.1.5 PHP/8.1.28 mod_fcgid/2.3.10-dev"
+										},
+										{
+											"key": "Vary",
+											"value": "Authorization"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.1.28"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "58"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5, max=100"
+										},
+										{
+											"key": "Connection",
+											"value": "Keep-Alive"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 200,\n    \"success\": true,\n    \"message\": \"Job updated successfully\",\n    \"data\": {\n        \"id\": 1,\n        \"company_id\": 1,\n        \"title\": \"Job title edit\",\n        \"description\": \"Job description\",\n        \"location\": \"Lagos, Nigeria\",\n        \"salary_range\": \"2000000 - 2500000\",\n        \"is_remote\": false,\n        \"published_at\": null,\n        \"deleted_at\": null,\n        \"created_at\": \"2025-05-18T23:17:20.000000Z\",\n        \"updated_at\": \"2025-05-18T23:45:43.000000Z\"\n    }\n}"
+								},
+								{
+									"name": "401 - Authentication required",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"title\": \"\",\r\n    \"description\": \"\",\r\n    \"location\": \"\",\r\n    \"salary_range\": \"\",\r\n    \"is_remote\": \"\",\r\n    \"published_at\": \"\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BASE_URL}}/api/v1/jobs",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"jobs"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sun, 18 May 2025 23:15:19 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "Apache/2.4.59 (Win64) OpenSSL/3.1.5 PHP/8.1.28 mod_fcgid/2.3.10-dev"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.1.28"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5, max=100"
+										},
+										{
+											"key": "Connection",
+											"value": "Keep-Alive"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 401,\n    \"success\": false,\n    \"message\": \"Unauthenticated.\",\n    \"data\": {}\n}"
+								},
+								{
+									"name": "422 - Validation error",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"title\": \"\",\r\n    \"description\": \"\",\r\n    \"location\": \"\",\r\n    \"salary_range\": \"\",\r\n    \"is_remote\": \"\",\r\n    \"published_at\": \"\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BASE_URL}}/api/v1/jobs",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"jobs"
+											]
+										}
+									},
+									"status": "Unprocessable Content",
+									"code": 422,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sun, 18 May 2025 23:15:56 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "Apache/2.4.59 (Win64) OpenSSL/3.1.5 PHP/8.1.28 mod_fcgid/2.3.10-dev"
+										},
+										{
+											"key": "Vary",
+											"value": "Authorization"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.1.28"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "59"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5, max=100"
+										},
+										{
+											"key": "Connection",
+											"value": "Keep-Alive"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 422,\n    \"success\": false,\n    \"message\": \"Validation failed\",\n    \"data\": {\n        \"title\": [\n            \"The title field is required.\"\n        ],\n        \"description\": [\n            \"The description field is required.\"\n        ],\n        \"location\": [\n            \"The location field is required.\"\n        ],\n        \"salary_range\": [\n            \"The salary range field is required.\"\n        ],\n        \"is_remote\": [\n            \"The is remote field is required.\"\n        ]\n    }\n}"
+								},
+								{
+									"name": "404 - Invalid job id",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"title\": \"Job title edit\",\r\n    \"description\": \"Job description\",\r\n    \"location\": \"Lagos, Nigeria\",\r\n    \"salary_range\": \"2000000 - 2500000\",\r\n    \"is_remote\": false,\r\n    \"published_at\": \"\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BASE_URL}}/api/v1/jobs/:id",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"jobs",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "2",
+													"description": "job id"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sun, 18 May 2025 23:43:34 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "Apache/2.4.59 (Win64) OpenSSL/3.1.5 PHP/8.1.28 mod_fcgid/2.3.10-dev"
+										},
+										{
+											"key": "Vary",
+											"value": "Authorization"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.1.28"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "59"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 404,\n    \"success\": false,\n    \"message\": \"Resource not found\",\n    \"data\": {}\n}"
+								},
+								{
+									"name": "403 - Unauthorized (must be owner)",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"title\": \"Job title edit\",\r\n    \"description\": \"Job description\",\r\n    \"location\": \"Lagos, Nigeria\",\r\n    \"salary_range\": \"2000000 - 2500000\",\r\n    \"is_remote\": false,\r\n    \"published_at\": \"\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BASE_URL}}/api/v1/jobs/:id",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"jobs",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1",
+													"description": "job id"
+												}
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sun, 18 May 2025 23:52:02 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "Apache/2.4.59 (Win64) OpenSSL/3.1.5 PHP/8.1.28 mod_fcgid/2.3.10-dev"
+										},
+										{
+											"key": "Vary",
+											"value": "Authorization"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.1.28"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "59"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5, max=100"
+										},
+										{
+											"key": "Connection",
+											"value": "Keep-Alive"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 403,\n    \"success\": false,\n    \"message\": \"Unauthorized\",\n    \"data\": {}\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete job",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{ACCESS_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"Job title edit\",\r\n    \"description\": \"Job description\",\r\n    \"location\": \"Lagos, Nigeria\",\r\n    \"salary_range\": \"2000000 - 2500000\",\r\n    \"is_remote\": false,\r\n    \"published_at\": \"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/api/v1/jobs/:id",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"jobs",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2",
+											"description": "job id"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "200 - Successful",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"title\": \"Job title edit\",\r\n    \"description\": \"Job description\",\r\n    \"location\": \"Lagos, Nigeria\",\r\n    \"salary_range\": \"2000000 - 2500000\",\r\n    \"is_remote\": false,\r\n    \"published_at\": \"\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BASE_URL}}/api/v1/jobs/:id",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"jobs",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "2",
+													"description": "job id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Mon, 19 May 2025 00:13:52 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "Apache/2.4.59 (Win64) OpenSSL/3.1.5 PHP/8.1.28 mod_fcgid/2.3.10-dev"
+										},
+										{
+											"key": "Vary",
+											"value": "Authorization"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.1.28"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "59"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5, max=100"
+										},
+										{
+											"key": "Connection",
+											"value": "Keep-Alive"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 200,\n    \"success\": true,\n    \"message\": \"Job deleted successfully\",\n    \"data\": {}\n}"
+								},
+								{
+									"name": "401 - Authentication required",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"title\": \"\",\r\n    \"description\": \"\",\r\n    \"location\": \"\",\r\n    \"salary_range\": \"\",\r\n    \"is_remote\": \"\",\r\n    \"published_at\": \"\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BASE_URL}}/api/v1/jobs",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"jobs"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sun, 18 May 2025 23:15:19 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "Apache/2.4.59 (Win64) OpenSSL/3.1.5 PHP/8.1.28 mod_fcgid/2.3.10-dev"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.1.28"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5, max=100"
+										},
+										{
+											"key": "Connection",
+											"value": "Keep-Alive"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 401,\n    \"success\": false,\n    \"message\": \"Unauthenticated.\",\n    \"data\": {}\n}"
+								},
+								{
+									"name": "404 - Invalid job id",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"title\": \"Job title edit\",\r\n    \"description\": \"Job description\",\r\n    \"location\": \"Lagos, Nigeria\",\r\n    \"salary_range\": \"2000000 - 2500000\",\r\n    \"is_remote\": false,\r\n    \"published_at\": \"\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BASE_URL}}/api/v1/jobs/:id",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"jobs",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "2",
+													"description": "job id"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sun, 18 May 2025 23:43:34 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "Apache/2.4.59 (Win64) OpenSSL/3.1.5 PHP/8.1.28 mod_fcgid/2.3.10-dev"
+										},
+										{
+											"key": "Vary",
+											"value": "Authorization"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.1.28"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "59"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 404,\n    \"success\": false,\n    \"message\": \"Resource not found\",\n    \"data\": {}\n}"
+								},
+								{
+									"name": "403 - Unauthorized (must be owner)",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"title\": \"Job title edit\",\r\n    \"description\": \"Job description\",\r\n    \"location\": \"Lagos, Nigeria\",\r\n    \"salary_range\": \"2000000 - 2500000\",\r\n    \"is_remote\": false,\r\n    \"published_at\": \"\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BASE_URL}}/api/v1/jobs/:id",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"jobs",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1",
+													"description": "job id"
+												}
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sun, 18 May 2025 23:52:02 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "Apache/2.4.59 (Win64) OpenSSL/3.1.5 PHP/8.1.28 mod_fcgid/2.3.10-dev"
+										},
+										{
+											"key": "Vary",
+											"value": "Authorization"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.1.28"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "59"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5, max=100"
+										},
+										{
+											"key": "Connection",
+											"value": "Keep-Alive"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 403,\n    \"success\": false,\n    \"message\": \"Unauthorized\",\n    \"data\": {}\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Candidate",
+			"item": [
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "Register candidate",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Save token to CANDIDATE_ACCESS_TOKEN var\", function () {\r",
+											"    const response = pm.response.json();\r",
+											"    pm.environment.set(\"CANDIDATE_ACCESS_TOKEN\", response.data.token);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Ifeanyi Nnorom\",\r\n    \"email\": \"nnoromifeanyi@gmail.com\",\r\n    \"password\": \"Pa$$word1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/api/auth/candidate/register",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"candidate",
+										"register"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "201 - Successful",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"Ifeanyi Nnorom\",\r\n    \"email\": \"nnoromifeanyi@gmail.com\",\r\n    \"password\": \"Pa$$word1\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BASE_URL}}/api/auth/candidate/register",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"api",
+												"auth",
+												"candidate",
+												"register"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sun, 18 May 2025 22:10:11 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "Apache/2.4.59 (Win64) OpenSSL/3.1.5 PHP/8.1.28 mod_fcgid/2.3.10-dev"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.1.28"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "59"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5, max=100"
+										},
+										{
+											"key": "Connection",
+											"value": "Keep-Alive"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 201,\n    \"success\": true,\n    \"message\": \"Candidate registered successfully\",\n    \"data\": {\n        \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNDhjYjA1MDdiMGY2ZDNhZjY1YjI5MDgwNDY4YTZkNmY0NzM4ZTQ0YzA1ZWIxNTlmNDVmYzhiYTBkNzlmODg5OGM4YzQwZGVhMjY0ZTNjNTAiLCJpYXQiOjE3NDc2MDYyMTIuMzY0ODcxLCJuYmYiOjE3NDc2MDYyMTIuMzY0ODgzLCJleHAiOjE3NzkxNDIyMTIuMzQ5ODA0LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.J22taryu0lR_yrBltqdP7x_w4UA-RXo4x0kceKKJ_AlUy7__npO9t2uWxTtDRpkFGqpYy0yy1vfXl1wpa2SGjCkR-lTIlo-0-F32K2YmzbgMgxlI9himyi2hdPoSNRQNGjvUE-0fUhbBtFup1ZHirAIE-Z1C7ky417Bu0wxGfOCEhSeErriVMeU2wBTPw0GYDtCFRGTb0z3Eul40VLVmB_J1FZuC-PYMkRcySSyF2rf5z1bepbvzvqVTlP-PAOYUHgGq3i_7EzRm4uKZiRjhWso_qoFLBw4Fqp5KSgK9GWLqYjK52Eha5wcrhIMFxJzw31fXiT3aSmxrAUTI-JTYiXBUhWV31vOTrtHLxfBbDWqWRM3GEuNM0zHaiAXsYnhc-JyRDTCa5YJj6qjymNt-AXhjxQls3tCiueLQLzzN2tifNvKbd6KJ4WKu8H7x9VrulZq2sZXKSX2CnDB1BlJBMdDnxYdaqGAm6Kvy-3HEENw23VnPf0kq6sIEGDF-QmcEdYKmVWk8ZnQO3qBUK9P5NlX3t-1myRZ0XcJyU30xz8yrcwBrnvt9okkr9oe7y7X4Ym0aqRHPRdCWkU9nEMr2TuQ_0mN18X1IfgLh17Pak6i4ZBtGOi6e3SEwdTp3CkUxFZa6QJUryyFe5LWEr38qBrOzJP3lkxdrF9xBilo4jx4\"\n    }\n}"
+								},
+								{
+									"name": "422 - Validation error",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"\",\r\n    \"email\": \"\",\r\n    \"password\": \"\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BASE_URL}}/api/auth/candidate/register",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"api",
+												"auth",
+												"candidate",
+												"register"
+											]
+										}
+									},
+									"status": "Unprocessable Content",
+									"code": 422,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sun, 18 May 2025 22:10:42 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "Apache/2.4.59 (Win64) OpenSSL/3.1.5 PHP/8.1.28 mod_fcgid/2.3.10-dev"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.1.28"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "58"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5, max=100"
+										},
+										{
+											"key": "Connection",
+											"value": "Keep-Alive"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 422,\n    \"success\": false,\n    \"message\": \"Validation failed\",\n    \"data\": {\n        \"name\": [\n            \"The name field is required.\"\n        ],\n        \"email\": [\n            \"The email field is required.\"\n        ],\n        \"password\": [\n            \"The password field is required.\"\n        ]\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Candidate login",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Save token to CANDIDATE_ACCESS_TOKEN var\", function () {\r",
+											"    const response = pm.response.json();\r",
+											"    pm.environment.set(\"CANDIDATE_ACCESS_TOKEN\", response.data.token);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"nnoromifeanyi@gmail.com\",\r\n    \"password\": \"Pa$$word1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/api/auth/candidate/login",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"candidate",
+										"login"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "200 - Successful",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"nnoromifeanyi@gmail.com\",\r\n    \"password\": \"Pa$$word1\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BASE_URL}}/api/auth/candidate/login",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"api",
+												"auth",
+												"candidate",
+												"login"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sun, 18 May 2025 22:13:35 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "Apache/2.4.59 (Win64) OpenSSL/3.1.5 PHP/8.1.28 mod_fcgid/2.3.10-dev"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.1.28"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "58"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5, max=100"
+										},
+										{
+											"key": "Connection",
+											"value": "Keep-Alive"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 200,\n    \"success\": true,\n    \"message\": \"Login successful\",\n    \"data\": {\n        \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiODVlOTk3YzYzZjAyZjViM2Q4ZjhkNTVmNjQ4OWZiZmQyZDU5Y2EzY2FiYWVlMTFiYTYzNGU3MzdlZWVjZTI2NjY2ZDg1MGMyYmJiZDMxYzEiLCJpYXQiOjE3NDc2MDY0MTUuODY5NzE3LCJuYmYiOjE3NDc2MDY0MTUuODY5NzI0LCJleHAiOjE3NzkxNDI0MTUuODU5NzcsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.r_xjY5UXjrMJtNwcXAOAnXvzoYWmGn7D7gqyMFuuuyngUSnO3rupvqqTrbdxahdBkvBzq3m9SGIBMYrFLfLnEMp5FB-mH1DVTKKNxxgQtW32fv6kRbfk1Zr_xsWkOZ7FmLTCzwGFQWhuY8YWdVaSrlAbw2MH_khW4V6DsTk9VpEONPux2-bcYtIsyph60Yj_dm84x6O-IVrEFZvY9fQd8E_WPvXNBObXZ29ddZ1A-RrjH6X7A6V-d3XWzfSzaFjm0JqYsZOEO10XExlQ8IPTil4uNYz5knJEtwa0HKZJoaQLxFUoZoRQGhCrrr7v4SGk2T1bniXUUf9WC6a64qrWkPOOFjD8eMtd9wGzR4Irh9i0y0p8jLd54_0sW-vfogTNothEXi_NW3vqSD1xeLVIgHL9I9J_yNmswg-jnlqlHWcpPICIW3odAlm6wboQ6QwQcENTKE68f38SpfB699uhE5xqPpRmBqwosQ1_W0PdQfClCPwcKKth3DcCYlI7-jZ0vpQSC4PY-TEyHXlq7LHxcZ6zt4koJQCy9q4I4BTaA054baNTUS698GOdWrZ_fCFMMe4o_uEoVItZnpm_Qg7TqLkuBoKPGsDtMdhk_jQfJLPOjILs0KFteoJDVx4VjT8_rtXOGfSI4GS6EO1Pde4IaNjIJJD7xVJTxL_Xr5iugAc\"\n    }\n}"
+								},
+								{
+									"name": "401 - Invalid credentials",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"abcltd@gmail.com\",\r\n    \"password\": \"Pa$$word1\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BASE_URL}}/api/auth/candidate/login",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"api",
+												"auth",
+												"candidate",
+												"login"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sun, 18 May 2025 22:14:31 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "Apache/2.4.59 (Win64) OpenSSL/3.1.5 PHP/8.1.28 mod_fcgid/2.3.10-dev"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.1.28"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "59"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5, max=100"
+										},
+										{
+											"key": "Connection",
+											"value": "Keep-Alive"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 401,\n    \"success\": false,\n    \"message\": \"Invalid credentials\",\n    \"data\": {}\n}"
+								},
+								{
+									"name": "422 - Validation error",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"\",\r\n    \"password\": \"\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BASE_URL}}/api/auth/candidate/login",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"api",
+												"auth",
+												"candidate",
+												"login"
+											]
+										}
+									},
+									"status": "Unprocessable Content",
+									"code": 422,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sun, 18 May 2025 22:14:07 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "Apache/2.4.59 (Win64) OpenSSL/3.1.5 PHP/8.1.28 mod_fcgid/2.3.10-dev"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.1.28"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "57"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5, max=100"
+										},
+										{
+											"key": "Connection",
+											"value": "Keep-Alive"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 422,\n    \"success\": false,\n    \"message\": \"Validation failed\",\n    \"data\": {\n        \"email\": [\n            \"The email field is required.\"\n        ],\n        \"password\": [\n            \"The password field is required.\"\n        ]\n    }\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Job",
+					"item": [
+						{
+							"name": "Get published jobs",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/api/v1/jobs/list?page=1&limit=20",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"jobs",
+										"list"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1",
+											"description": "current page number"
+										},
+										{
+											"key": "limit",
+											"value": "20",
+											"description": "number of records per page"
+										},
+										{
+											"key": "locatiion",
+											"value": "lagos",
+											"description": "filter by location",
+											"disabled": true
+										},
+										{
+											"key": "is_remote",
+											"value": "true",
+											"description": "filter remote jobs",
+											"disabled": true
+										},
+										{
+											"key": "keyword",
+											"value": "description",
+											"description": "search by keyword",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "200 - Successful",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BASE_URL}}/api/v1/jobs/list?page=1&limit=20",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"jobs",
+												"list"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "1",
+													"description": "current page number"
+												},
+												{
+													"key": "limit",
+													"value": "20",
+													"description": "number of records per page"
+												},
+												{
+													"key": "locatiion",
+													"value": "lagos",
+													"description": "filter by location",
+													"disabled": true
+												},
+												{
+													"key": "is_remote",
+													"value": "true",
+													"description": "filter remote jobs",
+													"disabled": true
+												},
+												{
+													"key": "keyword",
+													"value": "description",
+													"description": "search by keyword",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Mon, 19 May 2025 01:06:14 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "Apache/2.4.59 (Win64) OpenSSL/3.1.5 PHP/8.1.28 mod_fcgid/2.3.10-dev"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.1.28"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "58"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5, max=100"
+										},
+										{
+											"key": "Connection",
+											"value": "Keep-Alive"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 200,\n    \"success\": true,\n    \"message\": \"Published jobs fetched successfully\",\n    \"data\": {\n        \"current_page\": 1,\n        \"data\": [\n            {\n                \"id\": 4,\n                \"company_id\": 1,\n                \"title\": \"Backend Developer\",\n                \"description\": \"Job description\",\n                \"location\": \"Lagos, Nigeria\",\n                \"salary_range\": \"2000000 - 2500000\",\n                \"is_remote\": false,\n                \"published_at\": \"2025-05-19T00:59:59.000000Z\",\n                \"deleted_at\": null,\n                \"created_at\": \"2025-05-19T00:59:59.000000Z\",\n                \"updated_at\": \"2025-05-19T00:59:59.000000Z\"\n            }\n        ],\n        \"first_page_url\": \"http://jobboard.test:8090/api/v1/jobs/list?limit=20&page=1\",\n        \"from\": 1,\n        \"last_page\": 1,\n        \"last_page_url\": \"http://jobboard.test:8090/api/v1/jobs/list?limit=20&page=1\",\n        \"links\": [\n            {\n                \"url\": null,\n                \"label\": \"&laquo; Previous\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://jobboard.test:8090/api/v1/jobs/list?limit=20&page=1\",\n                \"label\": \"1\",\n                \"active\": true\n            },\n            {\n                \"url\": null,\n                \"label\": \"Next &raquo;\",\n                \"active\": false\n            }\n        ],\n        \"next_page_url\": null,\n        \"path\": \"http://jobboard.test:8090/api/v1/jobs/list\",\n        \"per_page\": 20,\n        \"prev_page_url\": null,\n        \"to\": 1,\n        \"total\": 1\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Apply for job",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{CANDIDATE_ACCESS_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "resume",
+											"description": "pdf,doc,docx (max:2mb)",
+											"type": "file",
+											"src": "/C:/Users/HP/OneDrive/Documents/franklyn v.docx"
+										},
+										{
+											"key": "cover_letter",
+											"description": "pdf,doc,docx (max:2mb)",
+											"type": "file",
+											"src": "/C:/Users/HP/OneDrive/Documents/SEMINAR II.docx"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/api/v1/jobs/:id/apply",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"jobs",
+										":id",
+										"apply"
+									],
+									"query": [
+										{
+											"key": "keyword",
+											"value": "description",
+											"description": "search by keyword",
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1",
+											"description": "job id"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "401 - Authentication required",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "resume",
+													"description": "pdf,doc,docx (max:2mb)",
+													"type": "file",
+													"src": []
+												},
+												{
+													"key": "cover_letter",
+													"description": "pdf,doc,docx (max:2mb)",
+													"type": "file",
+													"src": []
+												}
+											],
+											"options": {
+												"raw": {
+													"language": "text"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BASE_URL}}/api/v1/jobs/:id/apply",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"jobs",
+												":id",
+												"apply"
+											],
+											"query": [
+												{
+													"key": "keyword",
+													"value": "description",
+													"description": "search by keyword",
+													"disabled": true
+												}
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": ""
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Mon, 19 May 2025 01:43:52 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "Apache/2.4.59 (Win64) OpenSSL/3.1.5 PHP/8.1.28 mod_fcgid/2.3.10-dev"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.1.28"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5, max=100"
+										},
+										{
+											"key": "Connection",
+											"value": "Keep-Alive"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 401,\n    \"success\": false,\n    \"message\": \"Unauthenticated.\",\n    \"data\": {}\n}"
+								},
+								{
+									"name": "422 - Validation error",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "resume",
+													"description": "pdf,doc,docx (max:2mb)",
+													"type": "file",
+													"src": []
+												},
+												{
+													"key": "cover_letter",
+													"description": "pdf,doc,docx (max:2mb)",
+													"type": "file",
+													"src": []
+												}
+											],
+											"options": {
+												"raw": {
+													"language": "text"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BASE_URL}}/api/v1/jobs/:id/apply",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"jobs",
+												":id",
+												"apply"
+											],
+											"query": [
+												{
+													"key": "keyword",
+													"value": "description",
+													"description": "search by keyword",
+													"disabled": true
+												}
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": ""
+												}
+											]
+										}
+									},
+									"status": "Unprocessable Content",
+									"code": 422,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Mon, 19 May 2025 01:46:14 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "Apache/2.4.59 (Win64) OpenSSL/3.1.5 PHP/8.1.28 mod_fcgid/2.3.10-dev"
+										},
+										{
+											"key": "Vary",
+											"value": "Authorization"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.1.28"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "58"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5, max=100"
+										},
+										{
+											"key": "Connection",
+											"value": "Keep-Alive"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 422,\n    \"success\": false,\n    \"message\": \"Validation failed\",\n    \"data\": {\n        \"cover_letter\": [\n            \"The cover letter field is required.\"\n        ],\n        \"resume\": [\n            \"The resume field is required.\"\n        ]\n    }\n}"
+								},
+								{
+									"name": "400 - Job already applied",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "resume",
+													"description": "pdf,doc,docx (max:2mb)",
+													"type": "file",
+													"src": "/C:/Users/HP/OneDrive/Documents/franklyn v.docx"
+												},
+												{
+													"key": "cover_letter",
+													"description": "pdf,doc,docx (max:2mb)",
+													"type": "file",
+													"src": "/C:/Users/HP/OneDrive/Documents/SEMINAR II.docx"
+												}
+											],
+											"options": {
+												"raw": {
+													"language": "text"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BASE_URL}}/api/v1/jobs/:id/apply",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"jobs",
+												":id",
+												"apply"
+											],
+											"query": [
+												{
+													"key": "keyword",
+													"value": "description",
+													"description": "search by keyword",
+													"disabled": true
+												}
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1",
+													"description": "job id"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Mon, 19 May 2025 01:55:33 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "Apache/2.4.59 (Win64) OpenSSL/3.1.5 PHP/8.1.28 mod_fcgid/2.3.10-dev"
+										},
+										{
+											"key": "Vary",
+											"value": "Authorization"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.1.28"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "59"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 400,\n    \"success\": false,\n    \"message\": \"You have already applied to this job.\",\n    \"data\": {}\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "CANDIDATE_ACCESS_TOKEN",
+			"value": ""
+		}
+	]
+}
