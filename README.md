@@ -122,6 +122,61 @@ docs/
 
 ---
 
+## 📐 Design Choices
+
+#### Separation of Concerns
+
+The application uses a layered architecture to separate responsibilities:
+
+- **Controllers** handle HTTP input/output.
+- **Services** encapsulate business logic for modularity and reusability.
+- **Requests** handle validation.
+- **Jobs** handle asynchronous processing for file uploads (resume, cover letter).
+
+This makes the codebase easier to test, maintain, and scale.
+
+#### Role-Based Guards
+Laravel Passport is configured with multiple guards (`company` and `candidate`) to cleanly separate authentication logic for different user types. Each role has its own model, provider, and login flow, enabling clear boundaries in behavior and permissions.
+
+#### Custom API Response Format
+A standardized API response structure (`statusCode`, `success`, `message`, `data`) in `app/Helpers/ApiResponse.php` is used across the application for consistency and easier frontend integration.
+
+#### Middleware & Authorization
+Middleware is used to handle job application constraints (e.g., prevent duplicate applications, `app/Http/Middleware/CheckIfJobApplied.php`), and service-level authorization ensures companies can only manage their own job posts, `app/Http/Middleware/EnsureCompanyOwnsJob.php`.
+
+#### Public Job Listing with Filtering & Caching
+Public job listings support keyword, location, and remote filters. [Laravel Scout](https://laravel.com/docs/10.x/scout) is used with the [database driver](https://laravel.com/docs/10.x/scout#database-engine) for full-text search. Results are cached for **5 minutes** to reduce database load and improve performance.
+
+#### Queues for File Processing
+Resume and cover letter uploads are handled asynchronously using Laravel queues, improving user experience by offloading heavy operations from the request cycle.
+
+## 🚀 Assumptions & Improvements
+
+#### Assumptions
+
+- Token is returned on registration. Candidate or company can be logged in once registered
+- Jobs are published at the point of creation. (No moderation required)
+- Job expiration not a creteria
+- Files are stored locally, not best for production environment
+
+#### Improvements
+
+- **Cloud-Based File Storage**: Move resume and cover letter uploads from local disk storage to cloud services like AWS S3 for better scalability and availability.
+- **Automated Testing**: Add PHPUnit test coverage for core functionality
+- **Security Hardening**: Introduce throttling and stricter validation for high-risk endpoints (e.g., login, apply) to mitigate abuse.
+ - **Data Redundancy Concern**: Although seperate models with dedicated guards offer better separation of concerns for **Company** and **Candidate** authentication it might introduce data redundancy. 
+   - Shared fields like name, email, password, timestamps, and auth tokens can exist in a single table, distinguished by a `role` field. You can then create two `polymorphic profile` tables if needed
+   - One Passport guard, one login/register system.
+   - Centralized authentication, password reset, and token management.
+   - Use a middleware like `CheckRole` to restrict routes
+   - If needed, create interfaces or traits for `CompanyActions` and `CandidateActions`.
+   - Future roles like admin can be added without duplicating logic.
+
+**Note**: You will need to consider some trade-offs
+- Yes, this will reduce duplication, but give room for more complex role checking in business logic
+- Centralized user management, but might mix concerns if roles diverge too much over time
+- Easier to extend with more roles, but profile-specific logic could clutter the `User` model
+
 ## 🧪 Testing
 
 Run the following command to run test cases using Laravel's built-in PHPUnit:
