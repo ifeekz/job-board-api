@@ -192,7 +192,7 @@ Resume and cover letter uploads are handled asynchronously using Laravel queues,
 
 - Token is returned on registration. Candidate or company can be logged in once registered
 - Jobs are published at the point of creation. (No moderation required)
-- Job expiration not a creteria
+- Job expiration not a criteria
 - Files are stored locally, not best for production environment
 
 #### Improvements
