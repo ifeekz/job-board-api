@@ -22,7 +22,7 @@ class JobService
 
     public function createJob(array $data): Job
     {
-        return Auth::user()->jobs()->create($data);
+        return Auth::user()->jobs()->create([...$data, 'published_at' => now()]);
     }
 
     public function updateJob(Job $job, array $data): Job
@@ -36,5 +36,4 @@ class JobService
     {
         $job->delete();
     }
-
 }

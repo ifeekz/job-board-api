@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\CandidateAuthController;
 use App\Http\Controllers\Auth\CompanyAuthController;
 use App\Http\Controllers\Job\JobController;
+use App\Http\Controllers\Job\CandidateJobController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,4 +38,5 @@ Route::group(['prefix' => 'v1'], function () {
         Route::delete('/jobs/{job}', [JobController::class, 'destroy'])->middleware('ensure.company.owns.job');
     });
 
+    Route::get('/jobs/list', [CandidateJobController::class, 'index']);
 });
