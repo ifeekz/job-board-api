@@ -33,6 +33,7 @@ Route::group(['prefix' => 'auth'], function () {
 Route::group(['prefix' => 'v1'], function () {
     Route::middleware(['auth:company'])->group(function () {
         Route::get('/jobs', [JobController::class, 'index']);
+        Route::get('/jobs/stats', [JobController::class, 'stats']);
         Route::post('/jobs', [JobController::class, 'store']);
         Route::put('/jobs/{job}', [JobController::class, 'update'])->middleware('ensure.company.owns.job');
         Route::delete('/jobs/{job}', [JobController::class, 'destroy'])->middleware('ensure.company.owns.job');

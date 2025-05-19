@@ -2,6 +2,7 @@
 
 namespace App\Services\Job;
 
+use App\Models\JobApplication;
 use App\Models\JobPost;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -9,6 +10,23 @@ use App\Http\Resources\JobResource;
 
 class JobService
 {
+    public function getCompanyStats(): array
+    {
+        $company = Auth::user();
+
+        $totalJobs = $company->jobs()->count();
+
+        $totalApplications = JobApplication::whereIn(
+            'job_id',
+            $company->jobs()->pluck('id')
+        )->count();
+
+        return [
+            'total_jobs' => $totalJobs,
+            'total_applications' => $totalApplications,
+        ];
+    }
+
     public function listCompanyJobs(Request $request)
     {
         $limit = $request->query('limit', 10);

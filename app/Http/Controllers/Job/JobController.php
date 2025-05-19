@@ -19,6 +19,13 @@ class JobController extends Controller
         return ApiResponse::success($jobs, 'Jobs fetched successfully');
     }
 
+    public function stats()
+    {
+        $stats = $this->jobService->getCompanyStats();
+
+        return ApiResponse::success($stats, 'Company stats retrieved successfully');
+    }
+
     public function store(JobRequest $request)
     {
         $job = $this->jobService->createJob($request->validated());
