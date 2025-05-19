@@ -83,7 +83,7 @@ The API will be available at `http://localhost:8000`
 
 ### ✍️ Job Application (Candidate Only)
 - `POST /api/jobs/{id}/apply`
-- Upload `resume` (file) and `cover_letter` (text)
+- Upload `resume` (file) and `cover_letter` (file)
 - One application per job per candidate
 
 ### 🚀 Queueing
