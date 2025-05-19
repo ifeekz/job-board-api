@@ -108,10 +108,46 @@ php artisan queue:work
 
 ```
 app/
+├── Helpers/
+│   ├── ApiResponse.php
+│   └── helpers.php
+├── Http/
+│   ├── Controllers/
+│   │   ├── Auth/
+│   │   │   ├── CompanyAuthController.php
+│   │   │   └── CandidateAuthController.php
+│   │   ├── Job/
+│   │   │   ├── CandidateJobController.php
+│   │   │   └── JobController.php
+│   └── Middlewares/
+│       └── CheckIfJobApplied.php
+│       └── EnsureCompanyOwnsJob.php
+│   ├── Requests/
+│   │   └── Auth/
+│   │   │   ├── CompanyRegisterRequest.php
+│   │   │   └── CompanyLoginRequest.php
+│   │   │   ├── CandidateRegisterRequest.php
+│   │   │   └── CandidateLoginRequest.php
+│   │   └── Job/
+│   │       ├── JobApplicationRequest.php
+│   │       └── JobRequest.php
+│   └── Resources/
+│       └── JobResource.php
+├── Jobs/
+│   ├── ProcessCoverLetterUpload.php
+│   └── ProcessResumeUpload.php
 ├── Models/
 │   ├── Company.php
 │   ├── Candidate.php
-│   └── Job.php
+│   ├── JobApplication.php
+│   └── JobPost.php
+├── Services/
+│   ├── Auth
+│   │   ├── CandidateAuthService.php
+│   │   └── CompanyAuthService.php
+│   └── Job
+│       ├── CandidateJobService.php
+│       └── JobService.php
 routes/
 ├── api.php
 database/
