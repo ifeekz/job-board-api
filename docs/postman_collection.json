@@ -2,6 +2,7 @@
 	"info": {
 		"_postman_id": "055ccbbc-9e6a-4082-87e5-dbec408cadbd",
 		"name": "Job Board API",
+		"description": "Welcome to the **Job Board API** Postman Collection! This collection is designed to help you interact with and test all available endpoints for the Job Board platform, including authentication, job management, applications, and statistics for companies and candidates.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "11430366"
 	},
@@ -14,6 +15,21 @@
 					"item": [
 						{
 							"name": "Register company",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Save token to ACCESS_TOKEN var\", function () {\r",
+											"    const response = pm.response.json();\r",
+											"    pm.environment.set(\"ACCESS_TOKEN\", response.data.token);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"request": {
 								"method": "POST",
 								"header": [],
@@ -37,7 +53,8 @@
 										"company",
 										"register"
 									]
-								}
+								},
+								"description": "### API Request Description\n\nThis endpoint is used to register a company for authentication.\n\n### API Response\n\nThe response for this request can be documented as a JSON schema:\n\n``` json\n{\n    \"type\": \"object\",\n    \"properties\": {\n        \"statusCode\": {\n            \"type\": \"integer\"\n        },\n        \"success\": {\n            \"type\": \"boolean\"\n        },\n        \"message\": {\n            \"type\": \"string\"\n        },\n        \"data\": {\n            \"type\": \"object\",\n            \"properties\": {\n                \"token\": {\n                    \"type\": \"string\"\n                }\n            }\n        }\n    }\n}\n\n ```"
 							},
 							"response": [
 								{
@@ -55,10 +72,13 @@
 											}
 										},
 										"url": {
-											"raw": "{{BASE_URL}}/api/auth/company/register",
+											"raw": "http://jobboard.test:8090/api/auth/company/register",
+											"protocol": "http",
 											"host": [
-												"{{BASE_URL}}"
+												"jobboard",
+												"test"
 											],
+											"port": "8090",
 											"path": [
 												"api",
 												"auth",
@@ -202,6 +222,21 @@
 						},
 						{
 							"name": "Company login",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Save token to ACCESS_TOKEN var\", function () {\r",
+											"    const response = pm.response.json();\r",
+											"    pm.environment.set(\"ACCESS_TOKEN\", response.data.token);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"request": {
 								"method": "POST",
 								"header": [],
@@ -225,7 +260,8 @@
 										"company",
 										"login"
 									]
-								}
+								},
+								"description": "### Company Login\n\nThis endpoint allows the company to authenticate by providing their email and password.\n\n#### Request Body\n\n- email (string): The email of the company.\n    \n- password (string): The password of the company.\n    \n\n#### Response\n\nThe response will be a JSON object with the following schema:\n\n``` json\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"statusCode\": {\n      \"type\": \"number\"\n    },\n    \"success\": {\n      \"type\": \"boolean\"\n    },\n    \"message\": {\n      \"type\": \"string\"\n    },\n    \"data\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"token\": {\n          \"type\": \"string\"\n        }\n      }\n    }\n  }\n}\n\n ```"
 							},
 							"response": [
 								{
@@ -243,10 +279,13 @@
 											}
 										},
 										"url": {
-											"raw": "{{BASE_URL}}/api/auth/company/login",
+											"raw": "http://jobboard.test:8090/api/auth/company/login",
+											"protocol": "http",
 											"host": [
-												"{{BASE_URL}}"
+												"jobboard",
+												"test"
 											],
+											"port": "8090",
 											"path": [
 												"api",
 												"auth",
@@ -467,7 +506,8 @@
 								}
 							]
 						}
-					]
+					],
+					"description": "This folder includes authentication-related endpoints for companies."
 				},
 				{
 					"name": "Job",
@@ -509,7 +549,8 @@
 											"description": "number of records per page"
 										}
 									]
-								}
+								},
+								"description": "The endpoint retrieves a list of jobs with pagination, where the \"page\" query parameter specifies the page number and the \"limit\" query parameter specifies the number of items per page.\n\nThe response for this request can be documented as a JSON schema as follows:\n\n``` json\n{\n    \"type\": \"object\",\n    \"properties\": {\n        \"statusCode\": {\n            \"type\": \"integer\"\n        },\n        \"success\": {\n            \"type\": \"boolean\"\n        },\n        \"message\": {\n            \"type\": \"string\"\n        },\n        \"data\": {\n            \"type\": \"object\",\n            \"properties\": {\n                \"data\": {\n                    \"type\": \"array\",\n                    \"items\": {\n                        \"type\": \"object\",\n                        \"properties\": {\n                            \"id\": {\n                                \"type\": \"integer\"\n                            },\n                            \"title\": {\n                                \"type\": \"string\"\n                            },\n                            \"description\": {\n                                \"type\": \"string\"\n                            },\n                            \"location\": {\n                                \"type\": \"string\"\n                            },\n                            \"salary_range\": {\n                                \"type\": \"string\"\n                            },\n                            \"is_remote\": {\n                                \"type\": \"boolean\"\n                            },\n                            \"published_at\": {\n                                \"type\": [\"string\", \"null\"]\n                            },\n                            \"created_at\": {\n                                \"type\": \"string\"\n                            },\n                            \"updated_at\": {\n                                \"type\": \"string\"\n                            }\n                        },\n                        \"required\": [\"id\", \"title\", \"description\", \"location\", \"salary_range\", \"is_remote\", \"created_at\", \"updated_at\"]\n                    }\n                },\n                \"links\": {\n                    \"type\": \"object\",\n                    \"properties\": {\n                        \"first\": {\n                            \"type\": \"string\"\n                        },\n                        \"last\": {\n                            \"type\": \"string\"\n                        },\n                        \"prev\": {\n                            \"type\": [\"string\", \"null\"]\n                        },\n                        \"next\": {\n                            \"type\": [\"string\", \"null\"]\n                        }\n                    }\n                },\n                \"meta\": {\n                    \"type\": \"object\",\n                    \"properties\": {\n                        \"current_page\": {\n                            \"type\": \"integer\"\n                        },\n                        \"from\": {\n                            \"type\": \"integer\"\n                        },\n                        \"last_page\": {\n                            \"type\": \"integer\"\n                        },\n                        \"links\": {\n                            \"type\": \"array\",\n                            \"items\": {\n                                \"type\": \"object\",\n                                \"properties\": {\n                                    \"url\": {\n                                        \"type\": [\"string\", \"null\"]\n                                    },\n                                    \"label\": {\n                                        \"type\": \"string\"\n                                    },\n                                    \"active\": {\n                                        \"type\": \"boolean\"\n                                    }\n                                },\n                                \"required\": [\"url\", \"label\", \"active\"]\n                            }\n                        },\n                        \"path\": {\n                            \"type\": \"string\"\n                        },\n                        \"per_page\": {\n                            \"type\": \"integer\"\n                        },\n                        \"to\": {\n                            \"type\": \"integer\"\n                        },\n                        \"total\": {\n                            \"type\": \"integer\"\n                        }\n                    },\n                    \"required\": [\"current_page\", \"from\", \"last_page\", \"links\", \"path\", \"per_page\", \"to\", \"total\"]\n                }\n            },\n            \"required\": [\"data\", \"links\", \"meta\"]\n        }\n    },\n    \"required\": [\"statusCode\", \"success\", \"message\", \"data\"]\n}\n\n ```"
 							},
 							"response": [
 								{
@@ -522,10 +563,13 @@
 											"raw": "{\r\n    \"email\": \"nnoromifeanyi@gmail.com\",\r\n    \"password\": \"Pa$$word1\"\r\n}"
 										},
 										"url": {
-											"raw": "{{BASE_URL}}/api/v1/jobs?page=1&limit=20",
+											"raw": "http://jobboard.test:8090/api/v1/jobs?page=1&limit=20",
+											"protocol": "http",
 											"host": [
-												"{{BASE_URL}}"
+												"jobboard",
+												"test"
 											],
+											"port": "8090",
 											"path": [
 												"api",
 												"v1",
@@ -702,7 +746,8 @@
 										"v1",
 										"jobs"
 									]
-								}
+								},
+								"description": "### Create Job\n\nThis endpoint allows the user to create a new job posting.\n\n#### Request Body\n\n- title (string, required): The title of the job.\n    \n- description (string, required): A brief description of the job.\n    \n- location (string, required): The location of the job.\n    \n- salary_range (string, required): The salary range for the job.\n    \n- is_remote (boolean, required): Indicates if the job is remote.\n    \n- published_at (string, optional): The date when the job was published.\n    \n\n#### Response\n\nThe response will be a JSON object with the following schema:\n\n``` json\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"statusCode\": {\n      \"type\": \"number\"\n    },\n    \"success\": {\n      \"type\": \"boolean\"\n    },\n    \"message\": {\n      \"type\": \"string\"\n    },\n    \"data\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"title\": {\n          \"type\": \"string\"\n        },\n        \"description\": {\n          \"type\": \"string\"\n        },\n        \"location\": {\n          \"type\": \"string\"\n        },\n        \"salary_range\": {\n          \"type\": \"string\"\n        },\n        \"is_remote\": {\n          \"type\": \"boolean\"\n        },\n        \"published_at\": {\n          \"type\": [\"string\", \"null\"]\n        },\n        \"company_id\": {\n          \"type\": \"number\"\n        },\n        \"updated_at\": {\n          \"type\": \"string\"\n        },\n        \"created_at\": {\n          \"type\": \"string\"\n        },\n        \"id\": {\n          \"type\": \"number\"\n        }\n      }\n    }\n  }\n}\n\n ```"
 							},
 							"response": [
 								{
@@ -720,10 +765,13 @@
 											}
 										},
 										"url": {
-											"raw": "{{BASE_URL}}/api/v1/jobs",
+											"raw": "http://jobboard.test:8090/api/v1/jobs",
+											"protocol": "http",
 											"host": [
-												"{{BASE_URL}}"
+												"jobboard",
+												"test"
 											],
+											"port": "8090",
 											"path": [
 												"api",
 												"v1",
@@ -983,7 +1031,8 @@
 											"description": "job id"
 										}
 									]
-								}
+								},
+								"description": "### Update Job Details\n\nThis endpoint allows you to update the details of a specific job by providing the job ID.\n\n#### Request Body\n\n- title (string, required): The title of the job.\n    \n- description (string, required): A brief description of the job.\n    \n- location (string, required): The location of the job.\n    \n- salary_range (string, required): The salary range for the job.\n    \n- is_remote (boolean, required): Indicates if the job is remote.\n    \n- published_at (string, optional): The date when the job was published.\n    \n\n#### Response\n\nThe response will be in the form of a JSON schema with the following properties:\n\n- statusCode (number): The status code of the response.\n    \n- success (boolean): Indicates if the request was successful.\n    \n- message (string): A message related to the response.\n    \n- data (object): An object containing the updated job details.\n    \n    - id (number): The ID of the job.\n        \n    - company_id (number): The ID of the company associated with the job.\n        \n    - title (string): The updated title of the job.\n        \n    - description (string): The updated description of the job.\n        \n    - location (string): The updated location of the job.\n        \n    - salary_range (string): The updated salary range for the job.\n        \n    - is_remote (boolean): Indicates if the job is remote.\n        \n    - published_at (string): The updated date when the job was published.\n        \n    - deleted_at (string): The date when the job was deleted, if applicable.\n        \n    - created_at (string): The date when the job was created.\n        \n    - updated_at (string): The date when the job was last updated.\n        \n\n``` json\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"statusCode\": { \"type\": \"number\" },\n    \"success\": { \"type\": \"boolean\" },\n    \"message\": { \"type\": \"string\" },\n    \"data\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"id\": { \"type\": \"number\" },\n        \"company_id\": { \"type\": \"number\" },\n        \"title\": { \"type\": \"string\" },\n        \"description\": { \"type\": \"string\" },\n        \"location\": { \"type\": \"string\" },\n        \"salary_range\": { \"type\": \"string\" },\n        \"is_remote\": { \"type\": \"boolean\" },\n        \"published_at\": { \"type\": \"string\" },\n        \"deleted_at\": { \"type\": \"string\" },\n        \"created_at\": { \"type\": \"string\" },\n        \"updated_at\": { \"type\": \"string\" }\n      }\n    }\n  }\n}\n\n ```"
 							},
 							"response": [
 								{
@@ -1001,10 +1050,13 @@
 											}
 										},
 										"url": {
-											"raw": "{{BASE_URL}}/api/v1/jobs/:id",
+											"raw": "http://jobboard.test:8090/api/v1/jobs/:id",
+											"protocol": "http",
 											"host": [
-												"{{BASE_URL}}"
+												"jobboard",
+												"test"
 											],
+											"port": "8090",
 											"path": [
 												"api",
 												"v1",
@@ -1448,7 +1500,8 @@
 											"description": "job id"
 										}
 									]
-								}
+								},
+								"description": "### Delete Job by ID\n\nThis endpoint is used to delete a specific job by its ID.\n\n#### Request\n\n- Method: DELETE\n    \n- URL: `{{BASE_URL}}/api/v1/jobs/:id`\n    \n- Path Parameters:\n    \n    - `id` (string, required): The ID of the job to be deleted.\n        \n\n#### Response\n\nThe response for this request can be represented as a JSON schema:\n\n``` json\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"statusCode\": {\n      \"type\": \"integer\"\n    },\n    \"success\": {\n      \"type\": \"boolean\"\n    },\n    \"message\": {\n      \"type\": \"string\"\n    },\n    \"data\": {\n      \"type\": \"object\"\n    }\n  }\n}\n\n ```"
 							},
 							"response": [
 								{
@@ -1466,10 +1519,13 @@
 											}
 										},
 										"url": {
-											"raw": "{{BASE_URL}}/api/v1/jobs/:id",
+											"raw": "http://jobboard.test:8090/api/v1/jobs/:id",
+											"protocol": "http",
 											"host": [
-												"{{BASE_URL}}"
+												"jobboard",
+												"test"
 											],
+											"port": "8090",
 											"path": [
 												"api",
 												"v1",
@@ -1788,10 +1844,183 @@
 									"body": "{\n    \"statusCode\": 403,\n    \"success\": false,\n    \"message\": \"Unauthorized\",\n    \"data\": {}\n}"
 								}
 							]
+						},
+						{
+							"name": "Get company stats",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{ACCESS_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/api/v1/jobs/stats",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"jobs",
+										"stats"
+									]
+								},
+								"description": "This endpoint retrieves statistics related to jobs. The response is a JSON object with the following schema:\n\n``` json\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"statusCode\": {\n      \"type\": \"integer\"\n    },\n    \"success\": {\n      \"type\": \"boolean\"\n    },\n    \"message\": {\n      \"type\": \"string\"\n    },\n    \"data\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"total_jobs\": {\n          \"type\": \"integer\"\n        },\n        \"total_applications\": {\n          \"type\": \"integer\"\n        }\n      }\n    }\n  }\n}\n\n ```"
+							},
+							"response": [
+								{
+									"name": "200 - Successful",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://jobboard.test:8090/api/v1/jobs/stats",
+											"protocol": "http",
+											"host": [
+												"jobboard",
+												"test"
+											],
+											"port": "8090",
+											"path": [
+												"api",
+												"v1",
+												"jobs",
+												"stats"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Mon, 19 May 2025 09:19:00 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "Apache/2.4.59 (Win64) OpenSSL/3.1.5 PHP/8.1.28 mod_fcgid/2.3.10-dev"
+										},
+										{
+											"key": "Vary",
+											"value": "Authorization"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.1.28"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "59"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5, max=100"
+										},
+										{
+											"key": "Connection",
+											"value": "Keep-Alive"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 200,\n    \"success\": true,\n    \"message\": \"Company stats retrieved successfully\",\n    \"data\": {\n        \"total_jobs\": 2,\n        \"total_applications\": 1\n    }\n}"
+								},
+								{
+									"name": "401 - Authentication required",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BASE_URL}}/api/v1/jobs/stats",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"jobs",
+												"stats"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Mon, 19 May 2025 09:17:43 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "Apache/2.4.59 (Win64) OpenSSL/3.1.5 PHP/8.1.28 mod_fcgid/2.3.10-dev"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.1.28"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5, max=100"
+										},
+										{
+											"key": "Connection",
+											"value": "Keep-Alive"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 401,\n    \"success\": false,\n    \"message\": \"Unauthenticated.\",\n    \"data\": {}\n}"
+								}
+							]
 						}
-					]
+					],
+					"description": "This folder contains all endpoints related to managing jobs created by the authenticated company."
 				}
-			]
+			],
+			"description": "This folder contains all endpoints available to **company users** of the Job Board API. These endpoints allow companies to register, authenticate, manage job posts, and access relevant statistics.\n\nCompanies are required to authenticate using their access token via Laravel Passport. Include the token in each request using the authorization header.\n\nFolders:\n\n- **Auth**: Endpoints for company registration and login\n    \n- **Jobs**: Create, update, delete, and list job postings owned by the company"
 		},
 		{
 			"name": "Candidate",
@@ -1839,7 +2068,8 @@
 										"candidate",
 										"register"
 									]
-								}
+								},
+								"description": "This endpoint allows a candidate to register using the provided name, email, and password. Upon a successful registration, the response will include a token for authentication.\n\n### Request Body\n\n- name (string): The name of the candidate.\n    \n- email (string): The email of the candidate.\n    \n- password (string): The password for the candidate's account.\n    \n\n### Response\n\nThe response will be in the form of a JSON schema:\n\n``` json\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"statusCode\": {\n      \"type\": \"number\"\n    },\n    \"success\": {\n      \"type\": \"boolean\"\n    },\n    \"message\": {\n      \"type\": \"string\"\n    },\n    \"data\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"token\": {\n          \"type\": \"string\"\n        }\n      }\n    }\n  }\n}\n\n ```"
 							},
 							"response": [
 								{
@@ -1857,10 +2087,13 @@
 											}
 										},
 										"url": {
-											"raw": "{{BASE_URL}}/api/auth/candidate/register",
+											"raw": "http://jobboard.test:8090/api/auth/candidate/register",
+											"protocol": "http",
 											"host": [
-												"{{BASE_URL}}"
+												"jobboard",
+												"test"
 											],
+											"port": "8090",
 											"path": [
 												"api",
 												"auth",
@@ -2043,7 +2276,8 @@
 										"candidate",
 										"login"
 									]
-								}
+								},
+								"description": "This endpoint allows candidates to log in via HTTP POST request to {{BASE_URL}}/api/auth/candidate/login. The request should include the candidate's email and password in the raw request body.\n\n### Request Body\n\n- email (string, required): The email of the candidate.\n    \n- password (string, required): The password of the candidate.\n    \n\n### Response\n\nThe response for this request is a JSON schema with the following structure:\n\n``` json\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"statusCode\": {\n      \"type\": \"number\"\n    },\n    \"success\": {\n      \"type\": \"boolean\"\n    },\n    \"message\": {\n      \"type\": \"string\"\n    },\n    \"data\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"token\": {\n          \"type\": \"string\"\n        }\n      }\n    }\n  }\n}\n\n ```"
 							},
 							"response": [
 								{
@@ -2061,10 +2295,13 @@
 											}
 										},
 										"url": {
-											"raw": "{{BASE_URL}}/api/auth/candidate/login",
+											"raw": "http://jobboard.test:8090/api/auth/candidate/login",
+											"protocol": "http",
 											"host": [
-												"{{BASE_URL}}"
+												"jobboard",
+												"test"
 											],
+											"port": "8090",
 											"path": [
 												"api",
 												"auth",
@@ -2285,7 +2522,8 @@
 								}
 							]
 						}
-					]
+					],
+					"description": "This folder contains authentication endpoints for candidate users. Use the access token from the login response to authenticate future requests."
 				},
 				{
 					"name": "Job",
@@ -2339,7 +2577,8 @@
 											"disabled": true
 										}
 									]
-								}
+								},
+								"description": "This endpoint makes an HTTP GET request to retrieve a list of jobs with pagination support. The request should include the page number and limit for the number of jobs per page. The response is cached for 5 minutes for optimum performance.\n\nThe response includes a status code, success indicator, a message, and a data object containing the current page, an array of job objects with their details, and pagination metadata such as the total number of jobs, links, and page information.\n\n- `statusCode` (number): The status code of the response.\n    \n- `success` (boolean): Indicates if the request was successful.\n    \n- `message` (string): A message related to the response.\n    \n- `data` (object): An object containing the job list data.\n    \n    - `current_page` (number): The current page number of the results.\n        \n    - `data` (array): An array of job objects with the following properties:\n        \n        - `id` (number): The ID of the job.\n            \n        - `company_id` (number): The ID of the company associated with the job.\n            \n        - `title` (string): The title of the job.\n            \n        - `description` (string): The description of the job.\n            \n        - `location` (string): The location of the job.\n            \n        - `salary_range` (string): The salary range of the job.\n            \n        - `is_remote` (boolean): Indicates if the job is remote.\n            \n        - `published_at` (string): The date when the job was published.\n            \n        - `deleted_at` (string/null): The date when the job was deleted, if applicable.\n            \n        - `created_at` (string): The date when the job was created.\n            \n        - `updated_at` (string): The date when the job was last updated.\n            \n    - `first_page_url` (string): The URL of the first page of results.\n        \n    - `from` (number): The index of the first item in the current page.\n        \n    - `last_page` (number): The total number of pages.\n        \n    - `last_page_url` (string): The URL of the last page of results.\n        \n    - `links` (array): An array of link objects with the following properties:\n        \n        - `url` (string/null): The URL of the link.\n            \n        - `label` (string): The label of the link.\n            \n        - `active` (boolean): Indicates if the link is active.\n            \n    - `next_page_url` (string/null): The URL of the next page of results, if available.\n        \n    - `path` (string): The path of the current request.\n        \n    - `per_page` (number): The number of items per page.\n        \n    - `prev_page_url` (string/null): The URL of the previous page of results, if available.\n        \n    - `to` (number): The index of the last item in the current page.\n        \n    - `total` (number): The total number of items in the result set.\n        \n\nThis response can be documented as a JSON schema for reference."
 							},
 							"response": [
 								{
@@ -2348,10 +2587,13 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{BASE_URL}}/api/v1/jobs/list?page=1&limit=20",
+											"raw": "http://jobboard.test:8090/api/v1/jobs/list?page=1&limit=20",
+											"protocol": "http",
 											"host": [
-												"{{BASE_URL}}"
+												"jobboard",
+												"test"
 											],
+											"port": "8090",
 											"path": [
 												"api",
 												"v1",
@@ -2503,7 +2745,8 @@
 											"description": "job id"
 										}
 									]
-								}
+								},
+								"description": "This endpoint allows users to apply for a specific job by submitting their resume and cover letter.\n\n**Note**:\n\n- Candidates can only apply once per job\n    \n- File uploads are processed asynchronously using Laravel queues  \n    \n\n### Request Body\n\n- form-data\n    \n    - `resume` (file, required): pdf, doc, docx (max: 2mb) - The user's resume in PDF, DOC, or DOCX format.\n        \n    - `cover_letter` (file, required): pdf, doc, docx (max: 2mb) - The user's cover letter in PDF, DOC, or DOCX format.\n        \n\n### Response\n\nThe response of this request is documented as a JSON schema."
 							},
 							"response": [
 								{
@@ -2534,10 +2777,13 @@
 											}
 										},
 										"url": {
-											"raw": "{{BASE_URL}}/api/v1/jobs/:id/apply",
+											"raw": "http://jobboard.test:8090/api/v1/jobs/:id/apply",
+											"protocol": "http",
 											"host": [
-												"{{BASE_URL}}"
+												"jobboard",
+												"test"
 											],
+											"port": "8090",
 											"path": [
 												"api",
 												"v1",
@@ -2825,10 +3071,186 @@
 									"body": "{\n    \"statusCode\": 400,\n    \"success\": false,\n    \"message\": \"You have already applied to this job.\",\n    \"data\": {}\n}"
 								}
 							]
+						},
+						{
+							"name": "Candidate job stats",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{CANDIDATE_ACCESS_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/api/v1/jobs/candidate/stats",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"jobs",
+										"candidate",
+										"stats"
+									]
+								},
+								"description": "This endpoint makes an HTTP GET request to retrieve statistics related to jobs applied by a candidate. The response is in JSON format and has the following schema:\n\n``` json\n{\n    \"type\": \"object\",\n    \"properties\": {\n        \"statusCode\": {\n            \"type\": \"number\"\n        },\n        \"success\": {\n            \"type\": \"boolean\"\n        },\n        \"message\": {\n            \"type\": \"string\"\n        },\n        \"data\": {\n            \"type\": \"object\",\n            \"properties\": {\n                \"total_applied_jobs\": {\n                    \"type\": \"number\"\n                }\n            }\n        }\n    }\n}\n\n ```"
+							},
+							"response": [
+								{
+									"name": "200 - Successful",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://jobboard.test:8090/api/v1/jobs/candidate/stats",
+											"protocol": "http",
+											"host": [
+												"jobboard",
+												"test"
+											],
+											"port": "8090",
+											"path": [
+												"api",
+												"v1",
+												"jobs",
+												"candidate",
+												"stats"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Mon, 19 May 2025 09:30:52 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "Apache/2.4.59 (Win64) OpenSSL/3.1.5 PHP/8.1.28 mod_fcgid/2.3.10-dev"
+										},
+										{
+											"key": "Vary",
+											"value": "Authorization"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.1.28"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "59"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5, max=100"
+										},
+										{
+											"key": "Connection",
+											"value": "Keep-Alive"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 200,\n    \"success\": true,\n    \"message\": \"Candidate stats retrieved successfully\",\n    \"data\": {\n        \"total_applied_jobs\": 1\n    }\n}"
+								},
+								{
+									"name": "401 - Authentication required",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BASE_URL}}/api/v1/jobs/candidate/stats",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"jobs",
+												"candidate",
+												"stats"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Mon, 19 May 2025 09:30:21 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "Apache/2.4.59 (Win64) OpenSSL/3.1.5 PHP/8.1.28 mod_fcgid/2.3.10-dev"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.1.28"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5, max=100"
+										},
+										{
+											"key": "Connection",
+											"value": "Keep-Alive"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"statusCode\": 401,\n    \"success\": false,\n    \"message\": \"Unauthenticated.\",\n    \"data\": {}\n}"
+								}
+							]
 						}
-					]
+					],
+					"description": "This folder contains endpoints for:\n\n- **Viewing published job posts**\n    \n- **Applying to jobs with resume and cover letter uploads**\n    \n- **Retrieve statistics related to a candidate's job applications.**  \n      \n    \n\nNote:\n\n- Candidates can only apply once per job\n    \n- File uploads are processed asynchronously using Laravel queues"
 				}
-			]
+			],
+			"description": "This folder includes all endpoints available to **candidate users** of the Job Board API. Candidates can register, authenticate, browse public job listings, apply for jobs, and view application statistics.\n\nAll candidate-authenticated endpoints require an access token issued by Laravel Passport. Include it in the authorization header.\n\nFolders:\n\n- **Auth**: Endpoints for candidate registration and login\n    \n- **Jobs**: Public job listings, job application actions, and application statistics for the logged-in candidate."
 		}
 	],
 	"variable": [
