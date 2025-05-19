@@ -66,4 +66,8 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
     ];
+
+    protected $routeMiddleware = [
+        'ensure.company.owns.job' => \App\Http\Middleware\EnsureCompanyOwnsJob::class,
+    ];
 }
