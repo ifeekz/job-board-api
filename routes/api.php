@@ -44,4 +44,7 @@ Route::group(['prefix' => 'v1'], function () {
         ->middleware('auth:candidate')
         ->middleware('check.if.job.applied')
         ->name('job.apply');
+    Route::get('/jobs/candidate/stats', [CandidateJobController::class, 'stats'])
+        ->middleware('auth:candidate')
+        ->name('candidate.stats');
 });

@@ -76,4 +76,15 @@ class CandidateJobService
 
         return $application;
     }
+
+    public function getCandidateStats(): array
+    {
+        $candidate = Auth::user();
+
+        $totalAppliedJobs = $candidate->jobApplications()->count();
+
+        return [
+            'total_applied_jobs' => $totalAppliedJobs,
+        ];
+    }
 }

@@ -20,4 +20,9 @@ class Candidate extends Authenticatable
     protected $hidden = [
         'password',
     ];
+
+    public function jobApplications()
+    {
+        return $this->hasMany(JobApplication::class);
+    }
 }
