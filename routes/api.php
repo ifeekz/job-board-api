@@ -36,4 +36,5 @@ Route::group(['prefix' => 'v1'], function () {
         Route::put('/jobs/{job}', [JobController::class, 'update'])->middleware('ensure.company.owns.job');
         Route::delete('/jobs/{job}', [JobController::class, 'destroy'])->middleware('ensure.company.owns.job');
     });
+
 });
